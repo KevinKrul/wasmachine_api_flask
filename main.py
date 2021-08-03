@@ -1,11 +1,13 @@
 import os
 from datetime import datetime
 from flask import Flask, jsonify
+from flask_cors import CORS
 from flask_pymongo import PyMongo
 import json
 from bson import json_util
 
 app = Flask(__name__)
+CORS(app)
 app.config["MONGO_URI"] = os.environ['SECRET']
 mongo = PyMongo(app)
 
